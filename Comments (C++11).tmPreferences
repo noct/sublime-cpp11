@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>source.c, source.c++, source.objc, source.objc++</string>
+	<string>source.c++11</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
@@ -33,10 +33,10 @@
 				<string>TM_COMMENT_DISABLE_INDENT_2</string>
 				<key>value</key>
 				<string>yes</string>
-			</dict>		
+			</dict>
 		</array>
 	</dict>
 	<key>uuid</key>
-	<string>38DBCCE5-2005-410C-B7D7-013097751AC8</string>
+	<string>9A28ACA1-3F13-4621-A3B5-3C6FF6C3B169</string>
 </dict>
 </plist>

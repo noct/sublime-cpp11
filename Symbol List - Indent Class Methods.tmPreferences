@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleUUID</key>
-	<string>4675A940-6227-11D9-BFB1-000D93589AF6</string>
+	<string>D4F9DAEB-ADC3-4C66-B4B5-8E420E68DECF</string>
 	<key>name</key>
 	<string>Symbol List: Indent Class Methods</string>
 	<key>scope</key>
@@ -15,6 +15,6 @@
       s/^\s*/ /;  # pad</string>
 	</dict>
 	<key>uuid</key>
-	<string>B2B97E23-E686-4410-991D-A92AF3A9FC95</string>
+	<string>9343B154-3C63-4F81-A016-54BA69EDF99D</string>
 </dict>
 </plist>

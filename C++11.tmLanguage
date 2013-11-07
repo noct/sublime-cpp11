@@ -12,8 +12,6 @@
 		<string>cp</string>
 		<string>cxx</string>
 		<string>c++</string>
-		<string>C</string>
-		<string>h</string>
 		<string>hh</string>
 		<string>thh</string>
 		<string>hpp</string>

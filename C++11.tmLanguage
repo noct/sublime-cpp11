@@ -45,7 +45,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>R"([a-zA-Z_][A-Za-z_0-9]*)?\(</string>
+			<string>R"([a-zA-Z_]\w*)?\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -224,7 +224,7 @@
 			<key>begin</key>
 			<string>(?x)
 				^\s*\#\s*(define)\s+             # define
-				((?&lt;id&gt;[a-zA-Z_][a-zA-Z0-9_]*))  # macro name
+				((?&lt;id&gt;[a-zA-Z_]\w*))  # macro name
 				(?:                              # and optionally:
 					(\()                         # an open parenthesis
 						(
@@ -458,7 +458,7 @@
 			)
 			(\s*) (?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()
 			(
-				(?: [A-Za-z_][A-Za-z0-9_]*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
+				(?: [A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
 				(?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )  # if it is a C++ operator
 			)
 			 \s*(?=\()</string>
@@ -586,7 +586,7 @@
 					(?:  ^                                 # begin-of-line
 					  |  (?: (?&lt;!else|new|=) )             #  or word + space before name
 					)
-					((?:[A-Za-z_][A-Za-z0-9_]*::)*+~[A-Za-z_][A-Za-z0-9_]*) # actual name
+					((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
 					 \s*(\()                           # start bracket or end-of-line
 				</string>
 			<key>beginCaptures</key>
@@ -628,7 +628,7 @@
 					(?:  ^                                 # begin-of-line
 					  |  (?: (?&lt;!else|new|=) )             #  or word + space before name
 					)
-					((?:[A-Za-z_][A-Za-z0-9_]*::)*+~[A-Za-z_][A-Za-z0-9_]*) # actual name
+					((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
 					 \s*(\()                           # terminating semi-colon
 				</string>
 			<key>beginCaptures</key>
@@ -670,7 +670,7 @@
 		<key>access</key>
 		<dict>
 			<key>match</key>
-			<string>\.[a-zA-Z_][a-zA-Z_0-9]*\b(?!\s*\()|\->[a-zA-Z_][a-zA-Z_0-9]*\b(?!\s*\()</string>
+			<string>\.[a-zA-Z_]\w*\b(?!\s*\()|\->[a-zA-Z_]\w*\b(?!\s*\()</string>
 			<key>name</key>
 			<string>variable.other.dot-access.c++</string>
 		</dict>
@@ -773,7 +773,7 @@
 					<key>match</key>
 					<string>(?x) (?: (?= \s )  (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+))?
 			(\b
-				(?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()(?:(?!NS)[A-Za-z_][A-Za-z0-9_]*+\b | :: )++                  # actual name
+				(?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()(?:(?!NS)[A-Za-z_]\w*+\b | :: )++                  # actual name
 			)
 			 \s*(\()</string>
 					<key>name</key>
@@ -801,7 +801,7 @@
 				 )
 			)
 			(
-				(?: [A-Za-z_][A-Za-z0-9_]*+ | :: )++    |              # actual name
+				(?: [A-Za-z_]\w*+ | :: )++    |              # actual name
 				(?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )?  # if it is a C++ operator
 			)
 			 \s*(\()</string>

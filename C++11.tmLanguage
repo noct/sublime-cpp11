@@ -546,7 +546,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\btemplate\b\s*</string>
+			<string>\btemplate&lt;(class\s+\w+,?\s*)*&gt;</string>
 			<key>name</key>
 			<string>storage.type.template.c++</string>
 		</dict>

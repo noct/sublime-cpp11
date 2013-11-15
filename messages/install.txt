@@ -13,6 +13,22 @@ Under Preferences->Settings - User, add "C++" to the "ignored_packages" list:
 	],
 
 
+C/H Extensions
+==============
+By default this package allows a separate C language definition to associate
+with .c/.h files.
+
+To use sublime-cpp11 for these extensions, open the user preferences:
+
+ 	Preferences->Package Settings->C++11->Settings - User
+
+and add the following:
+
+	{
+		"extensions": ["c", "h"]
+	}
+
+
 Note: The current version is an early release with only minimal support
 * Pull requests welcome!
 * Report issues here: https://github.com/noct/sublime-cpp11/issues

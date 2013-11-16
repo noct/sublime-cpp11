@@ -458,7 +458,7 @@
 			)
 			(\s*) (?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()
 			(
-				(?: [A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
+				(?: [~A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
 				(?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )  # if it is a C++ operator
 			)
 			 \s*(?=\()</string>

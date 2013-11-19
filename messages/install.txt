@@ -1,4 +1,3 @@
-
 Thank you for installing sublime-cpp11!
 
 
@@ -25,7 +24,7 @@ To use sublime-cpp11 for these extensions, open the user preferences:
 and add the following:
 
 	{
-		"extensions": ["c", "h"]
+		"extensions": ["C", "H"]
 	}
 
 

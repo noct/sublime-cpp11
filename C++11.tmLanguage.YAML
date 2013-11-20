@@ -163,7 +163,7 @@ patterns:
 - {match: \b(this)\b, name: variable.language.c++}
 - {match: '\btemplate(<[\s\w,<>]*>)?', name: storage.type.template.c++}
 - {match: \b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b\s*, name: keyword.operator.cast.c++}
--   match: |-
+-   match: !!regex |-
         (?x)(
                         \b(?:and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq)\b
                     )
@@ -232,7 +232,7 @@ repository:
                 '1': {name: punctuation.whitespace.function-call.leading.c++}
                 '2': {name: entity.name.function.c++}
                 '3': {name: punctuation.definition.parameters.c++}
-            match: |-
+            match: !!regex |-
                 (?x) (?: (?= \s )  (?:(?<=else|new|return) | (?<!\w)) (\s+))?
                             (\b
                                 (?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()(?:(?!NS)[A-Za-z_]\w*+\b | :: )++                  # actual name
@@ -242,7 +242,7 @@ repository:
         -   captures:
                 '1': {name: variable.other.c++}
                 '2': {name: punctuation.definition.parameters.c++}
-            match: |-
+            match: !!regex |-
                 (?x)
                                     (?x)
                             (?:
@@ -474,7 +474,7 @@ repository:
         - {match: \\., name: invalid.illegal.unknown-escape.c++}
     string_placeholder:
         patterns:
-        -   match: |
+        -   match: !!regex |
                 (?x)%
                                             (\d+\$)?                             # field (argument #)
                                             [#0\- +']*                           # flags

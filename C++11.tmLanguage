@@ -224,7 +224,7 @@
 			<key>begin</key>
 			<string>(?x)
                 ^\s*\#\s*(define)\s+             # define
-                ((?&lt;id&gt;[a-zA-Z_]\w*))  # macro name
+                ((?&lt;id&gt;[a-zA-Z_]\w*))            # macro name
                 (?:                              # and optionally:
                     (\()                         # an open parenthesis
                         (

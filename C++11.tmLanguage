@@ -45,7 +45,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>R"([a-zA-Z_]\w*)?\(</string>
+			<string>R\"([a-zA-Z_]\w*)?\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -55,7 +55,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\)\1?"</string>
+			<string>\)\1?\"</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -119,8 +119,12 @@
 			<string>storage.modifier.c++</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>common C constant naming idiom -- kConstantVariable</string>
+			<key>match</key>
+			<string>\b(nullptr|NULL|true|false)\b</string>
+			<key>name</key>
+			<string>constant.language.c++}</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\bk[A-Z]\w*\b</string>
 			<key>name</key>
@@ -140,9 +144,99 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(nullptr|NULL|true|false)\b</string>
+			<string>\b(u_char|u_short|u_int|u_long|ushort|uint|u_quad_t|quad_t|qaddr_t|caddr_t|daddr_t|dev_t|fixpt_t|blkcnt_t|blksize_t|gid_t|in_addr_t|in_port_t|ino_t|key_t|mode_t|nlink_t|id_t|pid_t|off_t|segsz_t|swblk_t|uid_t|id_t|clock_t|size_t|ssize_t|time_t|useconds_t|suseconds_t)\b</string>
 			<key>name</key>
-			<string>constant.language.c++</string>
+			<string>support.type.sys-types.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(pthread_attr_t|pthread_cond_t|pthread_condattr_t|pthread_mutex_t|pthread_mutexattr_t|pthread_once_t|pthread_rwlock_t|pthread_rwlockattr_t|pthread_t|pthread_key_t)\b</string>
+			<key>name</key>
+			<string>support.type.pthread.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|int_least8_t|int_least16_t|int_least32_t|int_least64_t|uint_least8_t|uint_least16_t|uint_least32_t|uint_least64_t|int_fast8_t|int_fast16_t|int_fast32_t|int_fast64_t|uint_fast8_t|uint_fast16_t|uint_fast32_t|uint_fast64_t|intptr_t|uintptr_t|intmax_t|intmax_t|uintmax_t|uintmax_t)\b</string>
+			<key>name</key>
+			<string>support.type.stdint.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(noErr|kNilOptions|kInvalidID|kVariableLengthArray)\b</string>
+			<key>name</key>
+			<string>support.constant.mac-classic.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(AbsoluteTime|Boolean|Byte|ByteCount|ByteOffset|BytePtr|CompTimeValue|ConstLogicalAddress|ConstStrFileNameParam|ConstStringPtr|Duration|Fixed|FixedPtr|Float32|Float32Point|Float64|Float80|Float96|FourCharCode|Fract|FractPtr|Handle|ItemCount|LogicalAddress|OptionBits|OSErr|OSStatus|OSType|OSTypePtr|PhysicalAddress|ProcessSerialNumber|ProcessSerialNumberPtr|ProcHandle|Ptr|ResType|ResTypePtr|ShortFixed|ShortFixedPtr|SignedByte|SInt16|SInt32|SInt64|SInt8|Size|StrFileName|StringHandle|StringPtr|TimeBase|TimeRecord|TimeScale|TimeValue|TimeValue64|UInt16|UInt32|UInt64|UInt8|UniChar|UniCharCount|UniCharCountPtr|UniCharPtr|UnicodeScalarValue|UniversalProcHandle|UniversalProcPtr|UnsignedFixed|UnsignedFixedPtr|UnsignedWide|UTF16Char|UTF32Char|UTF8Char)\b</string>
+			<key>name</key>
+			<string>support.type.mac-classic.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(friend|explicit|virtual)\b</string>
+			<key>name</key>
+			<string>storage.modifier.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(private:|protected:|public:)</string>
+			<key>name</key>
+			<string>storage.modifier.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(catch|operator|try|throw|using)\b</string>
+			<key>name</key>
+			<string>keyword.control.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bdelete\b(\s*\[\])?|\bnew\b(?!])</string>
+			<key>name</key>
+			<string>keyword.control.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(f|m)[A-Z]\w*\b</string>
+			<key>name</key>
+			<string>variable.other.readwrite.member.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(this)\b</string>
+			<key>name</key>
+			<string>variable.language.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\btemplate(&lt;[\s\w,&lt;&gt;]*&gt;)?</string>
+			<key>name</key>
+			<string>storage.type.template.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b\s*</string>
+			<key>name</key>
+			<string>keyword.operator.cast.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(?:and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq)\b</string>
+			<key>name</key>
+			<string>keyword.operator.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(class|wchar_t)\b</string>
+			<key>name</key>
+			<string>storage.type.c++</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(export|mutable|typename)\b</string>
+			<key>name</key>
+			<string>storage.modifier.c++</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -152,7 +246,7 @@
 			<key>match</key>
 			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
 			<key>name</key>
-			<string>constant.numeric.c++</string>
+			<string>constant.numeric.c++}</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -414,52 +508,22 @@
 			</array>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\b(u_char|u_short|u_int|u_long|ushort|uint|u_quad_t|quad_t|qaddr_t|caddr_t|daddr_t|dev_t|fixpt_t|blkcnt_t|blksize_t|gid_t|in_addr_t|in_port_t|ino_t|key_t|mode_t|nlink_t|id_t|pid_t|off_t|segsz_t|swblk_t|uid_t|id_t|clock_t|size_t|ssize_t|time_t|useconds_t|suseconds_t)\b</string>
-			<key>name</key>
-			<string>support.type.sys-types.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(pthread_attr_t|pthread_cond_t|pthread_condattr_t|pthread_mutex_t|pthread_mutexattr_t|pthread_once_t|pthread_rwlock_t|pthread_rwlockattr_t|pthread_t|pthread_key_t)\b</string>
-			<key>name</key>
-			<string>support.type.pthread.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|int_least8_t|int_least16_t|int_least32_t|int_least64_t|uint_least8_t|uint_least16_t|uint_least32_t|uint_least64_t|int_fast8_t|int_fast16_t|int_fast32_t|int_fast64_t|uint_fast8_t|uint_fast16_t|uint_fast32_t|uint_fast64_t|intptr_t|uintptr_t|intmax_t|intmax_t|uintmax_t|uintmax_t)\b</string>
-			<key>name</key>
-			<string>support.type.stdint.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(noErr|kNilOptions|kInvalidID|kVariableLengthArray)\b</string>
-			<key>name</key>
-			<string>support.constant.mac-classic.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(AbsoluteTime|Boolean|Byte|ByteCount|ByteOffset|BytePtr|CompTimeValue|ConstLogicalAddress|ConstStrFileNameParam|ConstStringPtr|Duration|Fixed|FixedPtr|Float32|Float32Point|Float64|Float80|Float96|FourCharCode|Fract|FractPtr|Handle|ItemCount|LogicalAddress|OptionBits|OSErr|OSStatus|OSType|OSTypePtr|PhysicalAddress|ProcessSerialNumber|ProcessSerialNumberPtr|ProcHandle|Ptr|ResType|ResTypePtr|ShortFixed|ShortFixedPtr|SignedByte|SInt16|SInt32|SInt64|SInt8|Size|StrFileName|StringHandle|StringPtr|TimeBase|TimeRecord|TimeScale|TimeValue|TimeValue64|UInt16|UInt32|UInt64|UInt8|UniChar|UniCharCount|UniCharCountPtr|UniCharPtr|UnicodeScalarValue|UniversalProcHandle|UniversalProcPtr|UnsignedFixed|UnsignedFixedPtr|UnsignedWide|UTF16Char|UTF32Char|UTF8Char)\b</string>
-			<key>name</key>
-			<string>support.type.mac-classic.c++</string>
-		</dict>
-		<dict>
 			<key>include</key>
 			<string>#block</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-            (?:  ^                                 # begin-of-line
+            (?:  ^                                                        # begin-of-line
               |
                  (?: (?= \s )           (?&lt;!else|new|return) (?&lt;=\w)      #  or word + space before name
-                   | (?= \s*[A-Za-z_] ) (?&lt;!&amp;&amp;)       (?&lt;=[*&amp;&gt;])   #  or type modifier before name
+                   | (?= \s*[A-Za-z_] ) (?&lt;!&amp;&amp;)       (?&lt;=[*&amp;&gt;])          #  or type modifier before name
                  )
             )
             (\s*) (?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()
             (
-                (?: [~A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
-                (?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )  # if it is a C++ operator
+                (?: [A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |            # actual name
+                (?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )       # if it is a C++ operator
             )
              \s*(?=\()</string>
 			<key>beginCaptures</key>
@@ -507,83 +571,13 @@
 			</array>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\b(friend|explicit|virtual)\b</string>
-			<key>name</key>
-			<string>storage.modifier.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(private:|protected:|public:)</string>
-			<key>name</key>
-			<string>storage.modifier.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(catch|operator|try|throw|using)\b</string>
-			<key>name</key>
-			<string>keyword.control.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\bdelete\b(\s*\[\])?|\bnew\b(?!])</string>
-			<key>name</key>
-			<string>keyword.control.c++</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>common C++ instance var naming idiom -- fMemberName</string>
-			<key>match</key>
-			<string>\b(f|m)[A-Z]\w*\b</string>
-			<key>name</key>
-			<string>variable.other.readwrite.member.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(this)\b</string>
-			<key>name</key>
-			<string>variable.language.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\btemplate(&lt;[\s\w,&lt;&gt;]*&gt;)?</string>
-			<key>name</key>
-			<string>storage.type.template.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b\s*</string>
-			<key>name</key>
-			<string>keyword.operator.cast.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)(
-                \b(?:and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq)\b
-            )</string>
-			<key>name</key>
-			<string>keyword.operator.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(class|wchar_t)\b</string>
-			<key>name</key>
-			<string>storage.type.c++</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(export|mutable|typename)\b</string>
-			<key>name</key>
-			<string>storage.modifier.c++</string>
-		</dict>
-		<dict>
 			<key>begin</key>
 			<string>(?x)
-                    (?:  ^                                 # begin-of-line
-                      |  (?: (?&lt;!else|new|=) )             #  or word + space before name
-                    )
-                    ((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
-                     \s*(\()                           # start bracket or end-of-line
+      (?:  ^                                 # begin-of-line
+        |  (?: (?&lt;!else|new|=) )             #  or word + space before name
+      )
+      ((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
+       \s*(\()                           # start bracket or end-of-line
 </string>
 			<key>beginCaptures</key>
 			<dict>

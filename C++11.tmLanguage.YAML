@@ -61,7 +61,7 @@ patterns:
 -   begin: !!regex |
         (?x)
                         ^\s*\#\s*(define)\s+             # define
-                        ((?<id>[a-zA-Z_]\w*))  # macro name
+                        ((?<id>[a-zA-Z_]\w*))            # macro name
                         (?:                              # and optionally:
                             (\()                         # an open parenthesis
                                 (

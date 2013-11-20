@@ -58,7 +58,7 @@ patterns:
     name: string.quoted.single.c++
     patterns:
     - {include: '#string_escaped_char'}
--   begin: |
+-   begin: !!regex |
         (?x)
                         ^\s*\#\s*(define)\s+             # define
                         ((?<id>[a-zA-Z_]\w*))  # macro name
@@ -129,7 +129,7 @@ patterns:
 - {match: \b(AbsoluteTime|Boolean|Byte|ByteCount|ByteOffset|BytePtr|CompTimeValue|ConstLogicalAddress|ConstStrFileNameParam|ConstStringPtr|Duration|Fixed|FixedPtr|Float32|Float32Point|Float64|Float80|Float96|FourCharCode|Fract|FractPtr|Handle|ItemCount|LogicalAddress|OptionBits|OSErr|OSStatus|OSType|OSTypePtr|PhysicalAddress|ProcessSerialNumber|ProcessSerialNumberPtr|ProcHandle|Ptr|ResType|ResTypePtr|ShortFixed|ShortFixedPtr|SignedByte|SInt16|SInt32|SInt64|SInt8|Size|StrFileName|StringHandle|StringPtr|TimeBase|TimeRecord|TimeScale|TimeValue|TimeValue64|UInt16|UInt32|UInt64|UInt8|UniChar|UniCharCount|UniCharCountPtr|UniCharPtr|UnicodeScalarValue|UniversalProcHandle|UniversalProcPtr|UnsignedFixed|UnsignedFixedPtr|UnsignedWide|UTF16Char|UTF32Char|UTF8Char)\b,
     name: support.type.mac-classic.c++}
 - {include: '#block'}
--   begin: |-
+-   begin: !!regex |-
         (?x)
                     (?:  ^                                 # begin-of-line
                       |
@@ -170,7 +170,7 @@ patterns:
     name: keyword.operator.c++
 - {match: \b(class|wchar_t)\b, name: storage.type.c++}
 - {match: \b(export|mutable|typename)\b, name: storage.modifier.c++}
--   begin: |
+-   begin: !!regex |
         (?x)
                             (?:  ^                                 # begin-of-line
                               |  (?: (?<!else|new|=) )             #  or word + space before name
@@ -186,7 +186,7 @@ patterns:
     name: meta.function.destructor.c++
     patterns:
     - {include: $base}
--   begin: |
+-   begin: !!regex |
         (?x)
                             (?:  ^                                 # begin-of-line
                               |  (?: (?<!else|new|=) )             #  or word + space before name
@@ -282,7 +282,7 @@ repository:
             - {match: '(?>\\\s*\n)', name: punctuation.separator.continuation.c++}
     constructor:
         patterns:
-        -   begin: |
+        -   begin: !!regex |
                 (?x)
                                     (?:  ^\s*)                             # begin-of-line
                                     ((?!while|for|do|if|else|switch|catch|enumerate|r?iterate|sizeof|alignof)[A-Za-z_][A-Za-z0-9_:]*) # actual name
@@ -296,7 +296,7 @@ repository:
             name: meta.function.constructor.c++
             patterns:
             - {include: $base}
-        -   begin: |
+        -   begin: !!regex |
                 (?x)
                                     (:)                            # begin-of-line
                                     ((?=\s*[A-Za-z_][A-Za-z0-9_:]* # actual name

@@ -45,7 +45,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>R"([a-zA-Z_]\w*)?\(</string>
+			<string>R"([a-zA-Z_]*)\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -55,7 +55,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\)\1?"</string>
+			<string>\)\1"</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>

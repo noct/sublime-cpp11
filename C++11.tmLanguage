@@ -70,10 +70,6 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#string_escaped_char</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#string_placeholder</string>
 				</dict>
 			</array>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>source.c++11</string>
+    <string>source.c++.11</string>
     <key>settings</key>
     <dict>
         <key>cancelCompletion</key>

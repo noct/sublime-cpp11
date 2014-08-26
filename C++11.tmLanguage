@@ -1462,7 +1462,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.type.c++</string>
+							<string>entity.name.type.class.c++</string>
 						</dict>
 					</dict>
 					<key>end</key>

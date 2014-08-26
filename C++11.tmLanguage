@@ -1443,7 +1443,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.section.namespace.c++</string>
+							<string>entity.name.section.namespace.c++, entity.name.type.namespace.c++</string>
 						</dict>
 					</dict>
 					<key>end</key>

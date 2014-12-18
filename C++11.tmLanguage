@@ -1477,7 +1477,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>^\s*(typedef)\s+.*\s+([_A-Za-z][_A-Za-z0-9]*);</string>
+					<string>\b(typedef)\s+.*\s+([_A-Za-z][_A-Za-z0-9]*);</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>

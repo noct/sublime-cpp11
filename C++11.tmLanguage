@@ -1476,6 +1476,25 @@
 					</array>
 				</dict>
 				<dict>
+					<key>match</key>
+					<string>^\s*(typedef)\s+.*\s+([_A-Za-z][_A-Za-z0-9]*);</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.c++</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.class.c++</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.typedef-declaration.c++</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>\b(class|struct)\s+([_A-Za-z][_A-Za-z0-9]*\b)</string>
 					<key>beginCaptures</key>

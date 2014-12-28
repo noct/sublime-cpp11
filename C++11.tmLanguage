@@ -219,66 +219,72 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-				^\s*\#\s*(define)\s+             # define
-				((?&lt;id&gt;[a-zA-Z_]\w*))  # macro name
-				(?:                              # and optionally:
-					(\()                         # an open parenthesis
-						(
-							\s* \g&lt;id&gt; \s*       # first argument
-							((,) \s* \g&lt;id&gt; \s*)*  # additional arguments
-							(?:\.\.\.)?          # varargs ellipsis?
-						)
-					(\))                         # a close parenthesis
-				)?
-			</string>
+        		^\s*\#\s*(define)\s+             # define
+        		((?:[a-zA-Z_][a-zA-Z0-9_]*))  # macro name
+        		(?:                              # and optionally:
+        		    (\()                         # an open parenthesis
+        		        (
+        		            \s* [a-zA-Z_][a-zA-Z0-9_]* \s*       # first argument
+        		            (?:(,) \s* [a-zA-Z_][a-zA-Z0-9_]* \s*)*  # additional arguments
+        		            (?:\.\.\.)?          # varargs ellipsis?
+        		        )
+        		    (\))                         # a close parenthesis
+        		)?
+        	</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.import.define.c++</string>
+					<string>keyword.control.import.define.c</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.preprocessor.c++</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.c++</string>
+					<string>entity.name.function.preprocessor.c</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.preprocessor.c++</string>
+					<string>punctuation.definition.parameters.c</string>
 				</dict>
-				<key>7</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.parameters.c++</string>
+					<string>variable.parameter.preprocessor.c</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.parameters.c</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.parameters.c++</string>
+					<string>punctuation.definition.parameters.c</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(?=(?://|/\*))|$</string>
 			<key>name</key>
-			<string>meta.preprocessor.macro.c++</string>
+			<string>meta.preprocessor.macro.c</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>(?&gt;\\\s*\n)</string>
 					<key>name</key>
-					<string>punctuation.separator.continuation.c++</string>
+					<string>punctuation.separator.continuation.c</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>$base</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\w+)</string>
+					<key>name</key>
+					<string></string>
 				</dict>
 			</array>
 		</dict>

@@ -45,7 +45,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>R"([a-zA-Z_]*)\(</string>
+			<string>R"([\p{Alpha}_]*)\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -118,19 +118,19 @@
 			<key>comment</key>
 			<string>common C constant naming idiom -- kConstantVariable</string>
 			<key>match</key>
-			<string>\bk[A-Z]\w*\b</string>
+			<string>\bk\p{Upper}\w*\b</string>
 			<key>name</key>
 			<string>constant.other.variable.mac-classic.c++</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\bg[A-Z]\w*\b</string>
+			<string>\bg\p{Upper}\w*\b</string>
 			<key>name</key>
 			<string>variable.other.readwrite.global.mac-classic.c++</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\bs[A-Z]\w*\b</string>
+			<string>\bs\p{Upper}\w*\b</string>
 			<key>name</key>
 			<string>variable.other.readwrite.static.mac-classic.c++</string>
 		</dict>
@@ -220,12 +220,12 @@
 			<key>begin</key>
 			<string>(?x)
         		^\s*\#\s*(define)\s+             # define
-        		((?:[a-zA-Z_][a-zA-Z0-9_]*))  # macro name
+        		((?:[\p{Alpha}_]\w*))            # macro name
         		(?:                              # and optionally:
         		    (\()                         # an open parenthesis
         		        (
-        		            \s* [a-zA-Z_][a-zA-Z0-9_]* \s*       # first argument
-        		            (?:(,) \s* [a-zA-Z_][a-zA-Z0-9_]* \s*)*  # additional arguments
+        		            \s* [\p{Alpha}_]\w* \s*           # first argument
+        		            (?:(,) \s* [\p{Alpha}_]\w* \s*)*  # additional arguments
         		            (?:\.\.\.)?          # varargs ellipsis?
         		        )
         		    (\))                         # a close parenthesis
@@ -455,12 +455,12 @@
 			(?:  ^                                 # begin-of-line
 			  |
 				 (?: (?= \s )           (?&lt;!else|new|return) (?&lt;=\w)      #  or word + space before name
-				   | (?= \s*[A-Za-z_] ) (?&lt;!&amp;&amp;)       (?&lt;=[*&amp;&gt;])   #  or type modifier before name
+				   | (?= \s*[\p{Alpha}_] ) (?&lt;!&amp;&amp;)       (?&lt;=[*&amp;&gt;])   #  or type modifier before name
 				 )
 			)
 			(\s*) (?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()
 			(
-				(?: [~A-Za-z_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |                  # actual name
+				(?: [~\p{Alpha}_]\w*+ | :: | &lt;(\w+,?\s*)++&gt; )++ |           # actual name
 				(?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )  # if it is a C++ operator
 			)
 			 \s*(?=\()</string>
@@ -536,7 +536,7 @@
 			<key>comment</key>
 			<string>common C++ instance var naming idiom -- fMemberName</string>
 			<key>match</key>
-			<string>\b(f|m)[A-Z]\w*\b</string>
+			<string>\b(f|m)\p{Upper}\w*\b</string>
 			<key>name</key>
 			<string>variable.other.readwrite.member.c++</string>
 		</dict>
@@ -588,7 +588,7 @@
 					(?:  ^                                 # begin-of-line
 					  |  (?: (?&lt;!else|new|=) )             #  or word + space before name
 					)
-					((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
+					((?:[\p{Alpha}_]\w*::)*+~[\p{Alpha}_]\w*) # actual name
 					 \s*(\()                           # start bracket or end-of-line
 				</string>
 			<key>beginCaptures</key>
@@ -630,7 +630,7 @@
 					(?:  ^                                 # begin-of-line
 					  |  (?: (?&lt;!else|new|=) )             #  or word + space before name
 					)
-					((?:[A-Za-z_]\w*::)*+~[A-Za-z_]\w*) # actual name
+					((?:[\p{Alpha}_]\w*::)*+~[\p{Alpha}_]\w*) # actual name
 					 \s*(\()                           # terminating semi-colon
 				</string>
 			<key>beginCaptures</key>
@@ -672,7 +672,7 @@
 		<key>access</key>
 		<dict>
 			<key>match</key>
-			<string>\.[a-zA-Z_]\w*\b(?!\s*\()|\->[a-zA-Z_]\w*\b(?!\s*\()</string>
+			<string>\.[\p{Alpha}_]\w*\b(?!\s*\()|\->[\p{Alpha}_]\w*\b(?!\s*\()</string>
 			<key>name</key>
 			<string>variable.other.dot-access.c++</string>
 		</dict>
@@ -775,7 +775,7 @@
 					<key>match</key>
 					<string>(?x) (?: (?= \s )  (?:(?&lt;=else|new|return) | (?&lt;!\w)) (\s+))?
 			(\b
-				(?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()(?:(?!NS)[A-Za-z_]\w*+\b | :: )++                  # actual name
+				(?!(while|for|do|if|else|switch|catch|enumerate|return|r?iterate|sizeof|alignof)\s*\()(?:(?!NS)[\p{Alpha}_]\w*+\b | :: )++                  # actual name
 			)
 			 \s*(\()</string>
 					<key>name</key>
@@ -803,7 +803,7 @@
 				 )
 			)
 			(
-				(?: [A-Za-z_]\w*+ | :: )++    |              # actual name
+				(?: [\p{Alpha}_]\w*+ | :: )++    |                                 # actual name
 				(?: (?&lt;=operator) (?: [-*&amp;&lt;&gt;=+!]+ | \(\) | \[\] ) )?  # if it is a C++ operator
 			)
 			 \s*(\()</string>
@@ -1367,7 +1367,7 @@
 					<key>begin</key>
 					<string>(?x)
 					(?:  ^\s*)                             # begin-of-line
-					((?!while|for|do|if|else|switch|catch|enumerate|r?iterate|sizeof|alignof)[A-Za-z_][A-Za-z0-9_:]*) # actual name
+					((?!while|for|do|if|else|switch|catch|enumerate|r?iterate|sizeof|alignof)[\p{Alpha}_][\w:]*) # actual name
 					 \s*(\()                            # start bracket or end-of-line
 				</string>
 					<key>beginCaptures</key>
@@ -1407,7 +1407,7 @@
 					<key>begin</key>
 					<string>(?x)
 					(:)                            # begin-of-line
-					((?=\s*[A-Za-z_][A-Za-z0-9_:]* # actual name
+					((?=\s*[\p{Alpha}_][\w:]* # actual name
 					 \s*(\()))                      # start bracket or end-of-line
 				</string>
 					<key>beginCaptures</key>
@@ -1438,7 +1438,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(?mx)\b(namespace)\s+((?:[a-zA-Z_][a-zA-Z0-9_:]*)+)?</string>
+					<string>(?mx)\b(namespace)\s+((?:[\p{Alpha}_][\w:]*)+)?</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1483,7 +1483,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(typedef)\s+.*\s+([_A-Za-z][_A-Za-z0-9]*);</string>
+					<string>\b(typedef)\s+.*\s+([\p{Alpha}_]\w*);</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1502,7 +1502,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(class|struct)\s+([_A-Za-z][_A-Za-z0-9]*\b)</string>
+					<string>\b(class|struct)\s+([\p{Alpha}_]\w*\b)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
